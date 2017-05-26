@@ -20,7 +20,7 @@
           <div class="card-content">
             <span class="card-title">As comissões podem ser...</span>
             <ul>
-              <li v-for="commission in listOfCommissionType">{{ commission.descricao }}</li>
+              <li v-for="commissionType in listOfCommissionType">{{ commissionType.descricao }}</li>
             </ul>
           </div>
         </div>
@@ -31,6 +31,30 @@
         <div class="card">
           <div class="card-content">
             <span class="card-title">Busque um comissão em um determinado périodo de tempo</span>
+            <div class="row">
+              <div class="col s6">
+                <label>Selecione Comissão</label>
+                <select class="browser-default">
+                  <option value="" disabled selected>Selecione um opção</option>
+                  <option v-for="commission in listOfCommission" :value=commission.id>{{ commission.nome }}</option>
+                </select>
+              </div>
+              <div class="col s3">
+                <label>Selecione Ano</label>
+                <select class="browser-default">
+                  <option value="" disabled selected>Selecione um ano</option>
+                  <option v-for="year in years">{{ year.value }}</option>
+                </select>
+              </div>
+              <div class="col s3">
+                <label>Selecione Mês</label>
+                <select class="browser-default">
+                  <option value="" disabled selected>Selecione um mês</option>
+                  <option v-for="month in months">{{ month.value }}</option>
+                </select>
+              </div>
+            </div>
+            <a class="waves-effect waves-light btn" type="submit">Buscar</a>
           </div>
         </div>
       </div>
@@ -43,6 +67,11 @@ export default {
   name: 'hello',
   data () {
     return {
+      searchValue: {
+        commissionValue: '',
+        yearValue: '',
+        monthValue: ''
+      },
       listOfCommissionType: [],
       listOfCommission: [
         { "id": 1, "nome": "Administração Pública" },
@@ -53,6 +82,12 @@ export default {
         { "id": 6, "nome": "Defesa do Consumidor" },
         { "id": 7, "nome": "Trabalho, da Previdência e da Ação Social" },
         { "id": 8, "nome": "Direitos Humanos" }
+      ],
+      years: [
+        { "value": 2010 }, { "value": 2011 }, { "value": 2012 }, { "value": 2013 }, { "value": 2014 }, { "value": 2015 }, { "value": 2016 }, { "value": 2017 },
+      ],
+      months: [
+        { "value": 1 }, { "value": 2 }, { "value": 3 }, { "value": 4 }, { "value": 5 }, { "value": 6 }, { "value": 7 }, { "value": 8 }, { "value": 9 }, { "value": 10 }, { "value": 11 }, { "value": 12 }
       ]
     }
   },
@@ -105,5 +140,13 @@ li {
 
 li:hover {
   color: #13c0a0;
+}
+
+.btn {
+  background-color: #13c0a0;
+}
+
+.btn:hover {
+  background-color: #11dab5;
 }
 </style>
