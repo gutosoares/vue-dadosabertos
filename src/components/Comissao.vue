@@ -34,21 +34,21 @@
             <div class="row">
               <div class="col s6">
                 <label>Selecione Comissão</label>
-                <select class="browser-default">
+                <select class="browser-default" v-model="searchProperties.commissionValue">
                   <option value="" disabled selected>Selecione um opção</option>
                   <option v-for="commission in listOfCommission" :value=commission.id>{{ commission.nome }}</option>
                 </select>
               </div>
               <div class="col s3">
                 <label>Selecione Ano</label>
-                <select class="browser-default">
+                <select class="browser-default" v-model="searchProperties.yearValue">
                   <option value="" disabled selected>Selecione um ano</option>
                   <option v-for="year in years">{{ year.value }}</option>
                 </select>
               </div>
               <div class="col s3">
                 <label>Selecione Mês</label>
-                <select class="browser-default">
+                <select class="browser-default" v-model="searchProperties.monthValue">
                   <option value="" disabled selected>Selecione um mês</option>
                   <option v-for="month in months">{{ month.value }}</option>
                 </select>
@@ -67,7 +67,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      searchValue: {
+      searchProperties: {
         commissionValue: '',
         yearValue: '',
         monthValue: ''
