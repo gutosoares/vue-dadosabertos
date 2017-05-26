@@ -18,13 +18,19 @@
       <div class="col s12 m6">
         <div class="card">
           <div class="card-content">
-            <span class="card-title">As reuniões de comissão podem ser...</span>
+            <span class="card-title">As comissões podem ser...</span>
             <ul>
-              <li>teste</li>
-              <li>teste</li>
-              <li>teste</li>
-              <li>teste</li>
+              <li v-for="commission in listOfCommission">{{ commission.descricao }}</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Busque um comissão em um determinado périodo de tempo</span>
           </div>
         </div>
       </div>
@@ -37,12 +43,14 @@ export default {
   name: 'hello',
   data () {
     return {
-      listOfcommission: []
+      listOfCommission: []
     }
   },
   methods: {
     fetchTypeOfCommission() {
-      alert('teste')
+      this.$http.get('http://dadosabertos.almg.gov.br/ws/comissoes/tipos?formato=json').then(response => {
+        this.listOfCommission = response.data.list
+      })
     }
   },
   created() {
@@ -83,7 +91,6 @@ ul {
 li {
   padding-bottom: 20px;
   color: #444;
-  font-size: 18px;
 }
 
 li:hover {
