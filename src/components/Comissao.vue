@@ -20,7 +20,7 @@
           <div class="card-content">
             <span class="card-title">As comissões podem ser...</span>
             <ul>
-              <li v-for="commission in listOfCommission">{{ commission.descricao }}</li>
+              <li v-for="commission in listOfCommissionType">{{ commission.descricao }}</li>
             </ul>
           </div>
         </div>
@@ -43,18 +43,28 @@ export default {
   name: 'hello',
   data () {
     return {
-      listOfCommission: []
+      listOfCommissionType: [],
+      listOfCommission: [
+        { "id": 1, "nome": "Administração Pública" },
+        { "id": 2, "nome": "Política Agropecuária e Agroindustrial" },
+        { "id": 3, "nome": "Assuntos Municipais e Regionalização" },
+        { "id": 4, "nome": "Turismo, Indústria e Comércio" },
+        { "id": 5, "nome": "Constituição e Justiça" },
+        { "id": 6, "nome": "Defesa do Consumidor" },
+        { "id": 7, "nome": "Trabalho, da Previdência e da Ação Social" },
+        { "id": 8, "nome": "Direitos Humanos" }
+      ]
     }
   },
   methods: {
-    fetchTypeOfCommission() {
+    fetchTypeOfCommissionType() {
       this.$http.get('http://dadosabertos.almg.gov.br/ws/comissoes/tipos?formato=json').then(response => {
-        this.listOfCommission = response.data.list
+        this.listOfCommissionType = response.data.list
       })
     }
   },
   created() {
-    this.fetchTypeOfCommission()
+    this.fetchTypeOfCommissionType()
   }
 }
 </script>
