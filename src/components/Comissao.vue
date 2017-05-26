@@ -18,7 +18,7 @@
       <div class="col s12 m6">
         <div class="card">
           <div class="card-content">
-            <span class="card-title">As reuniões de comissão podem ser</span>
+            <span class="card-title">As reuniões de comissão podem ser...</span>
             <ul>
               <li>teste</li>
               <li>teste</li>
@@ -37,8 +37,16 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      listOfcommission: []
     }
+  },
+  methods: {
+    fetchTypeOfCommission() {
+      alert('teste')
+    }
+  },
+  created() {
+    this.fetchTypeOfCommission()
   }
 }
 </script>
