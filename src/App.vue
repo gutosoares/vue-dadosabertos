@@ -35,6 +35,10 @@ body {
   height: 1500px;
 }
 
+p {
+  color: #444;
+}
+
 nav {
   background-color: #13293D;
 }
