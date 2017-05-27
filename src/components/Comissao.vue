@@ -3,7 +3,7 @@
     <h1>Comissões</h1>
     <div class="row">
       <div class="col s12 m6">
-        <div class="card">
+        <div class="card commission-role">
           <div class="card-content">
             <span class="card-title">O Papel das Comissões</span>
             <p>O Congresso Nacional é composto de duas Casas: Câmara dos Deputados e Senado Federal. Cada uma dessas Casas possui Comissões Parlamentares, Permanentes ou Temporárias, com funções legislativas e fiscalizadoras, na forma definida na Constituição Federal e nos seus Regimentos Internos.</p>
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="col s12 m6">
-        <div class="card">
+        <div class="card commission-type">
           <div class="card-content">
             <span class="card-title">As comissões podem ser...</span>
             <ul>
@@ -59,8 +59,33 @@
         </div>
       </div>
     </div>
-    <div class="row">
-
+    <div class="row" v-if="searchResponse != ''">
+      <div class="col s12">
+        <div class="card" v-for="element in searchResponse">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s3 main-parliament">
+                <p>Titular</p>
+                <h5>{{ element.nomeParlamentarTitular }}</h5>
+                <h6>{{ element.partidoDeputadoTitular }}</h6>
+              </div>
+              <div class="col s3 deputy-parliament">
+                <p>Suplente</p>
+                <h5>{{ element.nomeParlamentarSuplente }}</h5>
+                <h6>{{ element.partidoDeputadoSuplente }}</h6>
+              </div>
+              <div class="col s6">
+                <p class="date-commission">{{ searchProperties.monthValue }}/{{ searchProperties.yearValue }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" v-else>
+      <div class="col s12">
+        <span class="error">Nenhum dado foi encontrado.</span>
+      </div>
     </div>
   </div>
 </template>
@@ -75,6 +100,7 @@ export default {
         yearValue: '',
         monthValue: ''
       },
+      searchResponse: [],
       listOfCommissionType: [],
       listOfCommission: [
         { "id": 1, "nome": "Administração Pública" },
@@ -102,7 +128,8 @@ export default {
     },
     searchCommission() {
       this.$http.get('http://dadosabertos.almg.gov.br/ws/comissoes/'+ this.searchProperties.commissionId +'/composicoes/'+ this.searchProperties.yearValue +'/'+ this.searchProperties.monthValue + '?formato=json').then(response => {
-        console.log(response)
+        this.searchResponse = response.data.list
+        console.log(this.searchResponse)
       })
     }
   },
@@ -112,12 +139,11 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
   font-weight: normal;
   font-size: 36px;
-  text-align: center;
+  color: #444;
 }
 
 .card {
@@ -156,5 +182,31 @@ li:hover {
 
 .btn:hover {
   background-color: #11dab5;
+}
+
+.main-parliament p,
+.deputy-parliament p {
+  color: #13c0a0;
+  font-weight: 200;
+}
+
+.main-parliament h5,
+.deputy-parliament h5 {
+  color: #444;
+}
+
+p.date-commission {
+  float: right;
+  margin: 70px 0px 0px 0px;
+  color: #999;
+  font-weight: 300;
+}
+
+.error {
+  text-align: center;
+  display: block;
+  font-size: 28px;
+  margin-top: 20px;
+  color: #ccc;
 }
 </style>
