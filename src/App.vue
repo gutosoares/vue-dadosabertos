@@ -1,23 +1,6 @@
 <template>
   <div id="app">
-    <header>
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper container">
-          <router-link to="/comissao" class="brand-logo center"><i class="material-icons">dashboard</i> Dados Abertos</router-link>
-          <a href="#" data-activates="menu-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li class="active"><router-link to="/comissao">Comissão</router-link></li>
-            <li><router-link to="/deputado">Deputados</router-link></li>
-          </ul>
-          <ul class="side-nav" id="menu-mobile">
-            <li><router-link to="/comissao">Comissão</router-link></li>
-            <li><router-link to="/deputado">Deputados</router-link></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    </header>
+    <app-header></app-header>
     <main class="container">
       <transition name="slide" mode="out-in">
         <router-view></router-view>
@@ -27,10 +10,13 @@
 </template>
 
 <script>
-$(".button-collapse").sideNav();
+import Header from './components/Header.vue'
 
 export default {
   name: 'app',
+  components: {
+    appHeader: Header
+  },
   data() {
     return {
     }
@@ -76,16 +62,6 @@ p {
 
 .btn:hover {
   background-color: #11dab5;
-}
-
-/* Header Style */
-nav {
-  background-color: #13293D;
-}
-
-nav .brand-logo {
-  color: #1de9c3;
-  font-weight: 200;
 }
 
 /* Animations Style */
