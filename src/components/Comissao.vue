@@ -140,29 +140,6 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-weight: normal;
-  font-size: 36px;
-  color: #444;
-}
-
-.card {
-  background-color: #f9f9f9;
-}
-
-.card .card-title {
-  color: #13c0a0;
-}
-
-.card p {
-  color: #444;
-  line-height: 24px;
-}
-
-.card .card-action a {
-  color: #13c0a0 !important;
-}
-
 ul {
   list-style-type: none;
 }
@@ -174,14 +151,6 @@ li {
 
 li:hover {
   color: #13c0a0;
-}
-
-.btn {
-  background-color: #13c0a0;
-}
-
-.btn:hover {
-  background-color: #11dab5;
 }
 
 .main-parliament p,
