@@ -11,7 +11,7 @@
             <p>No cumprimento dessas duas funções básicas, de elaboração das leis e de acompanhamento das ações administrativas, no âmbito do Poder Executivo, as Comissões promovem, também, debates e discussões com a participação da sociedade em geral, sobre todos os temas ou assuntos de seu interesse.</p>
           </div>
           <div class="card-action">
-            <a href="http://www2.camara.leg.br/atividade-legislativa/comissoes/o-papel-das-comissoes">Saiba mais aqui</a>
+            <a href="http://www2.camara.leg.br/atividade-legislativa/comissoes/o-papel-das-comissoes" target="_blank">Saiba mais aqui</a>
           </div>
         </div>
       </div>
