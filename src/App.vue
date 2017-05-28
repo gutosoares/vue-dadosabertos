@@ -64,6 +64,14 @@ p {
   background-color: #11dab5;
 }
 
+.error {
+  text-align: center;
+  display: block;
+  font-size: 28px;
+  margin-top: 20px;
+  color: #ccc;
+}
+
 /* Animations Style */
 .slide-enter-active {
   animation: slide-in 200ms ease-out forwards;
