@@ -35,8 +35,8 @@
               <div class="col s6">
                 <label>Selecione Comissão</label>
                 <select class="browser-default" v-model="searchProperties.commissionId">
-                  <option value="" disabled selected>Selecione um opção</option>
-                  <option v-for="commission in listOfCommission" :value=commission.id>{{ commission.nome }}</option>
+                  <option value="" disabled selected>Selecione uma opção</option>
+                  <option v-for="commission in listOfCommission" :value=commission.id>{{ commission.name }}</option>
                 </select>
               </div>
               <div class="col s3">
@@ -64,17 +64,17 @@
         <div class="card" v-for="element in searchResponse">
           <div class="card-content">
             <div class="row">
-              <div class="col s3 main-parliament">
+              <div class="col s4 main-parliament">
                 <p>Titular</p>
                 <h5>{{ element.nomeParlamentarTitular }}</h5>
                 <h6>{{ element.partidoDeputadoTitular }}</h6>
               </div>
-              <div class="col s3 deputy-parliament">
+              <div class="col s4 deputy-parliament">
                 <p>Suplente</p>
                 <h5>{{ element.nomeParlamentarSuplente }}</h5>
                 <h6>{{ element.partidoDeputadoSuplente }}</h6>
               </div>
-              <div class="col s6">
+              <div class="col s4">
                 <p class="date-commission">{{ searchProperties.monthValue }}/{{ searchProperties.yearValue }}</p>
               </div>
             </div>
@@ -103,14 +103,14 @@ export default {
       searchResponse: [],
       listOfCommissionType: [],
       listOfCommission: [
-        { "id": 1, "nome": "Administração Pública" },
-        { "id": 2, "nome": "Política Agropecuária e Agroindustrial" },
-        { "id": 3, "nome": "Assuntos Municipais e Regionalização" },
-        { "id": 4, "nome": "Turismo, Indústria e Comércio" },
-        { "id": 5, "nome": "Constituição e Justiça" },
-        { "id": 6, "nome": "Defesa do Consumidor" },
-        { "id": 7, "nome": "Trabalho, da Previdência e da Ação Social" },
-        { "id": 8, "nome": "Direitos Humanos" }
+        { "id": 1, "name": "Administração Pública" },
+        { "id": 2, "name": "Política Agropecuária e Agroindustrial" },
+        { "id": 3, "name": "Assuntos Municipais e Regionalização" },
+        { "id": 4, "name": "Turismo, Indústria e Comércio" },
+        { "id": 5, "name": "Constituição e Justiça" },
+        { "id": 6, "name": "Defesa do Consumidor" },
+        { "id": 7, "name": "Trabalho, da Previdência e da Ação Social" },
+        { "id": 8, "name": "Direitos Humanos" }
       ],
       years: [
         { "value": 2010 }, { "value": 2011 }, { "value": 2012 }, { "value": 2013 }, { "value": 2014 }, { "value": 2015 }, { "value": 2016 }, { "value": 2017 }, { "value": 2003 }
@@ -129,7 +129,6 @@ export default {
     searchCommission() {
       this.$http.get('http://dadosabertos.almg.gov.br/ws/comissoes/'+ this.searchProperties.commissionId +'/composicoes/'+ this.searchProperties.yearValue +'/'+ this.searchProperties.monthValue + '?formato=json').then(response => {
         this.searchResponse = response.data.list
-        console.log(this.searchResponse)
       })
     }
   },
