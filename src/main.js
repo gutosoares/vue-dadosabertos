@@ -9,6 +9,10 @@ Vue.use(VueResource)
 
 Vue.config.productionTip = false
 
+import 'materialize-css/dist/css/materialize.min.css'
+import 'materialize-css/dist/js/materialize.min.js'
+import 'jquery/dist/jquery.min.js'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
