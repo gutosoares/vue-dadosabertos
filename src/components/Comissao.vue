@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-    <div class="row" v-if="searchResponse != ''">
+    <div class="row" v-if="show">
       <div class="col s12">
         <div class="card" v-for="element in searchResponse">
           <div class="card-content">
@@ -82,7 +82,7 @@
         </div>
       </div>
     </div>
-    <div class="row" v-else>
+    <div class="row" v-if="!show">
       <div class="col s12">
         <span class="error">Nenhum dado foi encontrado.</span>
       </div>
@@ -100,6 +100,7 @@ export default {
         yearValue: '',
         monthValue: ''
       },
+      show: true,
       searchResponse: [],
       listOfCommissionType: [],
       listOfCommission: [
@@ -128,7 +129,12 @@ export default {
     },
     searchCommission() {
       this.$http.get('http://dadosabertos.almg.gov.br/ws/comissoes/'+ this.searchProperties.commissionId +'/composicoes/'+ this.searchProperties.yearValue +'/'+ this.searchProperties.monthValue + '?formato=json').then(response => {
-        this.searchResponse = response.data.list
+        if(response.data.list == 0) {
+          this.show = false
+        } else {
+          this.searchResponse = response.data.list
+          this.show = true
+        }
       })
     }
   },
@@ -168,13 +174,5 @@ p.date-commission {
   margin: 70px 0px 0px 0px;
   color: #999;
   font-weight: 300;
-}
-
-.error {
-  text-align: center;
-  display: block;
-  font-size: 28px;
-  margin-top: 20px;
-  color: #ccc;
 }
 </style>
