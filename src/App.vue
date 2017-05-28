@@ -23,17 +23,23 @@ export default {
   }
 }
 </script>
+
 <style>
 /* Global Style */
 body {
 	background-color: rgba(242, 246, 247, 0.80);
-  height: 1500px;
+}
+
+h1,
+h5,
+h6,
+p {
+  color: #444;
 }
 
 h1 {
   font-weight: normal;
   font-size: 36px;
-  color: #444;
 }
 
 .card {
@@ -50,10 +56,6 @@ h1 {
 
 .card .card-action a {
   color: #13c0a0 !important;
-}
-
-p {
-  color: #444;
 }
 
 .btn {
