@@ -33,25 +33,25 @@
             <span class="card-title">Busque uma comissão em um determinado périodo de tempo</span>
             <div class="row">
               <div class="col s12 m4 l6">
-                <label>Selecione Comissão</label>
                 <select class="browser-default" v-model="searchProperties.commissionId">
-                  <option value="" disabled selected>Selecione uma opção</option>
+                  <option value="" disabled selected>Selecione uma Comissão</option>
                   <option v-for="commission in listOfCommission" :value=commission.id>{{ commission.name }}</option>
                 </select>
+                <label v-if="searchProperties.commissionId == ''">* Opção vazia</label>
               </div>
               <div class="col s12 m4 l3">
-                <label>Selecione Ano</label>
                 <select class="browser-default" v-model="searchProperties.yearValue">
-                  <option value="" disabled selected>Selecione um ano</option>
+                  <option value="" disabled selected>Selecione um Ano</option>
                   <option v-for="year in years">{{ year.value }}</option>
                 </select>
+                <label v-if="searchProperties.yearValue == ''">* Opção vazia</label>
               </div>
               <div class="col s12 m4 l3">
-                <label>Selecione Mês</label>
                 <select class="browser-default" v-model="searchProperties.monthValue">
-                  <option value="" disabled selected>Selecione um mês</option>
+                  <option value="" disabled selected>Selecione um Mês</option>
                   <option v-for="month in months">{{ month.value }}</option>
                 </select>
+                <label v-if="searchProperties.monthValue == ''">* Opção vazia</label>
               </div>
             </div>
             <a class="waves-effect waves-light btn" type="submit" @click.prevent="searchCommission()">Buscar</a>
