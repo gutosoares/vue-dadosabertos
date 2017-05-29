@@ -114,7 +114,7 @@ export default {
         { "id": 8, "name": "Direitos Humanos" }
       ],
       years: [
-        { "value": 2010 }, { "value": 2011 }, { "value": 2012 }, { "value": 2013 }, { "value": 2014 }, { "value": 2015 }, { "value": 2016 }, { "value": 2017 }, { "value": 2003 }
+        { "value": 2010 }, { "value": 2011 }, { "value": 2012 }, { "value": 2013 }, { "value": 2014 }, { "value": 2015 }, { "value": 2016 }, { "value": 2017 }
       ],
       months: [
         { "value": 1 }, { "value": 2 }, { "value": 3 }, { "value": 4 }, { "value": 5 }, { "value": 6 }, { "value": 7 }, { "value": 8 }, { "value": 9 }, { "value": 10 }, { "value": 11 }, { "value": 12 }
