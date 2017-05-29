@@ -20,7 +20,7 @@
           <div class="card-content">
             <span class="card-title">Número de Deputados por Estado</span>
             <div class="row">
-              <div class="col s6 m4 l5 xl4">
+              <div class="col s6">
                 <ul>
                   <li><div>Acre<span class="secondary-content right">8</span></div></li>
                   <li><div>Alagoas<span class="secondary-content right">9</span></div></li>
@@ -31,23 +31,19 @@
                   <li><div>Distrito Federal<span class="secondary-content right">8</span></div></li>
                   <li><div>Espírito Santo<span class="secondary-content right">10</span></div></li>
                   <li><div>Goiás<span class="secondary-content right">17</span></div></li>
-                </ul>
-              </div>
-              <div class="col s6 m4 l7 xl4">
-                <ul>
                   <li><div>Maranhão<span class="secondary-content right">18</span></div></li>
                   <li><div>Minas Gerais<span class="secondary-content right">53</span></div></li>
                   <li><div>Mato Grosso do Sul<span class="secondary-content right">8</span></div></li>
                   <li><div>Mato Grosso<span class="secondary-content right">8</span></div></li>
+                </ul>
+              </div>
+              <div class="col s6">
+                <ul>
                   <li><div>Pará<span class="secondary-content right">8</span></div></li>
                   <li><div>Paraíba<span class="secondary-content right">12</span></div></li>
                   <li><div>Pernambuco<span class="secondary-content right">25</span></div></li>
                   <li><div>Piauí<span class="secondary-content right">10</span></div></li>
                   <li><div>Paraná<span class="secondary-content right">30</span></div></li>
-                </ul>
-              </div>
-              <div class="col s6 m4 l8 xl4">
-                <ul>
                   <li><div>Rio de Janeiro<span class="secondary-content right">46</span></div></li>
                   <li><div>Rio Grande do Norte<span class="secondary-content right">8</span></div></li>
                   <li><div>Rondônia<span class="secondary-content right">8</span></div></li>
@@ -155,6 +151,10 @@ export default {
 <style>
 .card-content .secondary-content {
   color: #13c0a0;
+}
+
+.card-content {
+
 }
 
 .card-search .btn {
