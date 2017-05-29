@@ -2,7 +2,7 @@
   <div class="deputado">
     <h1>Deputados</h1>
     <div class="row">
-      <div class="col s12">
+      <div class="col s12 l6 xl6">
         <div class="card">
           <div class="card-content">
             <span class="card-title">O Papel dos Deputados</span>
@@ -15,12 +15,12 @@
           </div>
         </div>
       </div>
-      <div class="col s12">
+      <div class="col s12 l6 xl6">
         <div class="card">
           <div class="card-content">
             <span class="card-title">Número de Deputados por Estado</span>
               <div class="row">
-                <div class="col s6">
+                <div class="col s6 m4 l5 xl4">
                   <ul>
                     <li><div>Acre<span class="secondary-content right">8</span></div></li>
                     <li><div>Alagoas<span class="secondary-content right">9</span></div></li>
@@ -33,7 +33,7 @@
                     <li><div>Goiás<span class="secondary-content right">17</span></div></li>
                   </ul>
                 </div>
-                <div class="col s6">
+                <div class="col s6 m4 l7 xl4">
                   <ul>
                     <li><div>Maranhão<span class="secondary-content right">18</span></div></li>
                     <li><div>Minas Gerais<span class="secondary-content right">53</span></div></li>
@@ -46,7 +46,7 @@
                     <li><div>Paraná<span class="secondary-content right">30</span></div></li>
                   </ul>
                 </div>
-                <div class="col s6">
+                <div class="col s6 m4 l8 xl4">
                   <ul>
                     <li><div>Rio de Janeiro<span class="secondary-content right">46</span></div></li>
                     <li><div>Rio Grande do Norte<span class="secondary-content right">8</span></div></li>
@@ -70,14 +70,14 @@
             <div class="card-content">
               <span class="card-title">Pesquise por Deputados na Legislação Atual</span>
               <div class="row">
-                <div class="col s7">
-                  <label>Selecione Situação</label>
+                <div class="col s7 m8 l9">
                   <select class="browser-default" v-model="sit">
                     <option value="" disabled selected>Selecione uma opção</option>
                     <option v-for="sit in sitList" :value=sit.id>{{ sit.name }}</option>
                   </select>
+                  <label v-if="sit == ''">* Opção vazia</label>
                 </div>
-                <div class="col s5">
+                <div class="col s5 m4 l3">
                   <a class="waves-effect waves-light btn" type="submit" @click.prevent="searchDeputy()">Buscar</a>
                 </div>
               </div>
@@ -152,7 +152,8 @@ ul li {
 }
 
 .btn {
-  margin: 25px 0px 0px 25px;
+  margin: 4px 5px 0px;
+  width: 100%;
 }
 
 .card-response p {
