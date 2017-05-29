@@ -2,7 +2,7 @@
   <div class="comissao">
     <h1>Comissões</h1>
     <div class="row">
-      <div class="col s12 m6">
+      <div class="col s12 l6 xl6">
         <div class="card commission-role">
           <div class="card-content">
             <span class="card-title">O Papel das Comissões</span>
@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6">
+      <div class="col s12 l6 xl6">
         <div class="card commission-type">
           <div class="card-content">
             <span class="card-title">As comissões podem ser...</span>
@@ -32,21 +32,21 @@
           <div class="card-content">
             <span class="card-title">Busque uma comissão em um determinado périodo de tempo</span>
             <div class="row">
-              <div class="col s6">
+              <div class="col s12 m4 l6">
                 <label>Selecione Comissão</label>
                 <select class="browser-default" v-model="searchProperties.commissionId">
                   <option value="" disabled selected>Selecione uma opção</option>
                   <option v-for="commission in listOfCommission" :value=commission.id>{{ commission.name }}</option>
                 </select>
               </div>
-              <div class="col s3">
+              <div class="col s12 m4 l3">
                 <label>Selecione Ano</label>
                 <select class="browser-default" v-model="searchProperties.yearValue">
                   <option value="" disabled selected>Selecione um ano</option>
                   <option v-for="year in years">{{ year.value }}</option>
                 </select>
               </div>
-              <div class="col s3">
+              <div class="col s12 m4 l3">
                 <label>Selecione Mês</label>
                 <select class="browser-default" v-model="searchProperties.monthValue">
                   <option value="" disabled selected>Selecione um mês</option>
