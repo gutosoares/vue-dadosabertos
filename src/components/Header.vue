@@ -29,11 +29,11 @@ export default {
 
 <style>
 nav {
-  background-color: #13293D;
+  background-color: #13293D !important;
 }
 
 nav .brand-logo {
-  color: #1de9c3;
+  color: #1de9c3 !important;
   font-weight: 200;
 }
 

@@ -28,18 +28,25 @@ export default {
 /* Global Style */
 body {
 	background-color: rgba(242, 246, 247, 0.80);
-}
-
-h1,
-h5,
-h6,
-p {
   color: #444;
 }
 
-h1 {
-  font-weight: normal;
-  font-size: 36px;
+#app h1 {
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  padding-bottom: 12px;
+  color: #444;
+}
+
+ul li:hover {
+  color: #13c0a0 !important;
 }
 
 .card {
@@ -56,14 +63,6 @@ h1 {
 
 .card .card-action a {
   color: #13c0a0 !important;
-}
-
-.btn {
-  background-color: #13c0a0;
-}
-
-.btn:hover {
-  background-color: #11dab5;
 }
 
 .error {

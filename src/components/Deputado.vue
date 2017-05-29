@@ -148,23 +148,23 @@ export default {
 }
 </script>
 
-<style scoped>
-ul li {
-  padding-bottom: 12px;
+<style>
+.deputado .secondary-content {
+  color: #13c0a0 !important;
 }
 
-.secondary-content {
-  color: #13c0a0;
-}
-
-.btn {
+.deputado .btn {
   margin: 4px 5px 0px;
   width: 100%;
+  background-color: #13c0a0 !important;
+}
+
+.deputado .btn:hover {
+  background-color: #11dab5 !important;
 }
 
 .card-response p {
-  color: #13c0a0;
+  color: #13c0a0 !important;
   font-weight: 200;
 }
-
 </style>

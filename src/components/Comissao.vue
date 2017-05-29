@@ -51,7 +51,7 @@
                   <option value="" disabled selected>Selecione um Mês</option>
                   <option v-for="month in months">{{ month.value }}</option>
                 </select>
-                <label v-if="searchProperties.yearValue == ''">* Opção vazia</label>
+                <label v-if="searchProperties.monthValue == ''">* Opção vazia</label>
               </div>
             </div>
             <a class="waves-effect waves-light btn" type="submit" @click.prevent="searchCommission()">Buscar</a>
@@ -150,23 +150,10 @@ export default {
 }
 </script>
 
-<style scoped>
-ul {
-  list-style-type: none;
-}
-
-li {
-  padding-bottom: 20px;
-  color: #444;
-}
-
-li:hover {
-  color: #13c0a0;
-}
-
+<style>
 .main-parliament p,
 .deputy-parliament p {
-  color: #13c0a0;
+  color: #13c0a0 !important;
   font-weight: 200;
 }
 
@@ -175,10 +162,18 @@ li:hover {
   color: #444;
 }
 
-p.date-commission {
+.comissao p.date-commission {
   float: right;
   margin: 70px 0px 0px 0px;
   color: #999;
   font-weight: 300;
+}
+
+.comissao .btn {
+  background-color: #13c0a0 !important;
+}
+
+.comissao .btn:hover {
+  background-color: #11dab5 !important;
 }
 </style>
