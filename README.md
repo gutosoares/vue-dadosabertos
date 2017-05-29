@@ -1,6 +1,17 @@
-# vue-dadosabertos
+# Dados Abertos | Vue.js
 
-> A Vue.js project
+> Este projeto é apenas para fins de processo seletivo para a vaga de Front-End Developer.
+
+## Demo
+![Demonstração do Sistema](demo/demo.gif)
+
+## Stack utilizada
+* Vue.js
+* Vue Router
+* Vue Resource
+* Vue Paginate
+* Materalize Framework
+* Dados Abertos do Governo
 
 ## Build Setup
 
