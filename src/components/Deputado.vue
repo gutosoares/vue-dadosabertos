@@ -2,7 +2,7 @@
   <div class="deputado">
     <h1>Deputados</h1>
     <div class="row">
-      <div class="col s6">
+      <div class="col s12">
         <div class="card">
           <div class="card-content">
             <span class="card-title">O Papel dos Deputados</span>
@@ -15,12 +15,12 @@
           </div>
         </div>
       </div>
-      <div class="col s6">
+      <div class="col s12">
         <div class="card">
           <div class="card-content">
             <span class="card-title">Número de Deputados por Estado</span>
               <div class="row">
-                <div class="col s4">
+                <div class="col s6">
                   <ul>
                     <li><div>Acre<span class="secondary-content right">8</span></div></li>
                     <li><div>Alagoas<span class="secondary-content right">9</span></div></li>
@@ -33,7 +33,7 @@
                     <li><div>Goiás<span class="secondary-content right">17</span></div></li>
                   </ul>
                 </div>
-                <div class="col s4">
+                <div class="col s6">
                   <ul>
                     <li><div>Maranhão<span class="secondary-content right">18</span></div></li>
                     <li><div>Minas Gerais<span class="secondary-content right">53</span></div></li>
@@ -46,7 +46,7 @@
                     <li><div>Paraná<span class="secondary-content right">30</span></div></li>
                   </ul>
                 </div>
-                <div class="col s4">
+                <div class="col s6">
                   <ul>
                     <li><div>Rio de Janeiro<span class="secondary-content right">46</span></div></li>
                     <li><div>Rio Grande do Norte<span class="secondary-content right">8</span></div></li>
@@ -64,8 +64,51 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col s12 m12">
+          <div class="card card-search">
+            <div class="card-content">
+              <span class="card-title">Pesquise por Deputados na Legislação Atual</span>
+              <div class="row">
+                <div class="col s7">
+                  <label>Selecione Situação</label>
+                  <select class="browser-default" v-model="sit">
+                    <option value="" disabled selected>Selecione uma opção</option>
+                    <option v-for="sit in sitList" :value=sit.id>{{ sit.name }}</option>
+                  </select>
+                </div>
+                <div class="col s5">
+                  <a class="waves-effect waves-light btn" type="submit" @click.prevent="searchDeputy()">Buscar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" v-if="show">
+        <div class="col s12">
+          <div class="card card-response center-align" v-for="element in searchResponse">
+              <div class="card-content valing-wrapper">
+                <div class="row">
+                  <div class="col s4">
+                    <p>Partido</p>
+                    <h5>{{ element.partido }}</h5>
+                  </div>
+                  <div class="col s8">
+                    <p>Deputado</p>
+                    <h5>{{ element.nome }}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row" v-if="!show">
+        <div class="col s12">
+          <span class="error">Nenhum dado foi encontrado.</span>
+        </div>
+      </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -73,20 +116,47 @@ export default {
   name: 'hello',
   data () {
     return {
-      sit: [
-        { "value": 1, "name": 'Em Exercício' },
-        { "value": 2, "name": 'Exerceu Mandato' },
-        { "value": 3, "name": 'Renunciou' },
-        { "value": 4, "name": 'Perdeu Mandato' },
-      ]
+      sitList: [
+        { "id": 1, "name": 'Em Exercício' },
+        { "id": 2, "name": 'Exerceu Mandato' },
+        { "id": 3, "name": 'Renunciou' },
+        { "id": 4, "name": 'Perdeu Mandato' },
+      ],
+      searchResponse: [],
+      sit: '',
+      show: true
+    }
+  },
+  methods: {
+    searchDeputy() {
+      this.$http.get('http://dadosabertos.almg.gov.br/ws/deputados/situacao/' + this.sit + '?formato=json').then(response => {
+        if(response.data.list == 0) {
+          this.show = false
+        } else {
+          this.searchResponse = response.data.list
+          this.show = true
+        }
+      })
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 ul li {
   padding-bottom: 12px;
+}
+
+.secondary-content {
+  color: #13c0a0;
+}
+
+.btn {
+  margin: 25px 0px 0px 25px;
+}
+
+.card-response p {
+  color: #13c0a0;
+  font-weight: 200;
 }
 </style>
