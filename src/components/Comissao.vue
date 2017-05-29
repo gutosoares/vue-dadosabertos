@@ -28,7 +28,7 @@
     </div>
     <div class="row">
       <div class="col s12 m12">
-        <div class="card">
+        <div class="card comission-search">
           <div class="card-content">
             <span class="card-title">Busque uma comissão em um determinado périodo de tempo</span>
             <div class="row">
@@ -61,21 +61,21 @@
     </div>
     <div class="row" v-if="show">
       <div class="col s12">
-        <div class="card" v-for="element in searchResponse">
+        <div class="card comission-response" v-for="element in searchResponse">
           <div class="card-content">
             <div class="row">
-              <div class="col s4 main-parliament">
+              <div class="col s4">
                 <p>Titular</p>
                 <h5>{{ element.nomeParlamentarTitular }}</h5>
                 <h6>{{ element.partidoDeputadoTitular }}</h6>
               </div>
-              <div class="col s4 deputy-parliament">
+              <div class="col s4">
                 <p>Suplente</p>
                 <h5>{{ element.nomeParlamentarSuplente }}</h5>
                 <h6>{{ element.partidoDeputadoSuplente }}</h6>
               </div>
               <div class="col s4">
-                <p class="date-commission">{{ searchProperties.monthValue }}/{{ searchProperties.yearValue }}</p>
+                <p class="commission-date">{{ searchProperties.monthValue }}/{{ searchProperties.yearValue }}</p>
               </div>
             </div>
           </div>
@@ -151,29 +151,26 @@ export default {
 </script>
 
 <style>
-.main-parliament p,
-.deputy-parliament p {
+.comission-response .card-content p {
   color: #13c0a0 !important;
-  font-weight: 200;
+  font-weight: 300;
 }
 
-.main-parliament h5,
-.deputy-parliament h5 {
+.commission-response .card-content h5 {
   color: #444;
 }
 
-.comissao p.date-commission {
+.card .card-content p.commission-date {
   float: right;
   margin: 70px 0px 0px 0px;
-  color: #999;
   font-weight: 300;
 }
 
 .comissao .btn {
-  background-color: #13c0a0 !important;
+  background-color: #13c0a0;
 }
 
 .comissao .btn:hover {
-  background-color: #11dab5 !important;
+  background-color: #11dab5;
 }
 </style>

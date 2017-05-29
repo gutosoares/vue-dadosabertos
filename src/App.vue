@@ -49,20 +49,20 @@ ul li:hover {
   color: #13c0a0 !important;
 }
 
-.card {
+#app .card {
   background-color: #f9f9f9;
 }
 
-.card .card-title {
+#app .card .card-title {
   color: #13c0a0;
 }
 
-.card p {
+#app .card p {
   line-height: 24px;
 }
 
-.card .card-action a {
-  color: #13c0a0 !important;
+#app .card .card-action a {
+  color: #13c0a0;
 }
 
 .error {

@@ -28,12 +28,12 @@ export default {
 </script>
 
 <style>
-nav {
-  background-color: #13293D !important;
+header nav {
+  background-color: #13293D;
 }
 
-nav .brand-logo {
-  color: #1de9c3 !important;
+header nav .brand-logo {
+  color: #1de9c3;
   font-weight: 200;
 }
 

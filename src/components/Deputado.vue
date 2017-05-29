@@ -153,31 +153,31 @@ export default {
 </script>
 
 <style>
-.deputado .secondary-content {
-  color: #13c0a0 !important;
+.card-content .secondary-content {
+  color: #13c0a0;
 }
 
-.deputado .btn {
+.card-search .btn {
   margin: 4px 5px 0px;
   width: 100%;
-  background-color: #13c0a0 !important;
+  background-color: #13c0a0;
 }
 
-.deputado .btn:hover {
-  background-color: #11dab5 !important;
+.card-search .btn:hover {
+  background-color: #11dab5;
 }
 
-.card-response p {
+.card-response .card-content p {
   color: #13c0a0 !important;
-  font-weight: 200;
+  font-weight: 300;
 }
 
-.paginate-links.searchResponse {
+.deputado .paginate-links.searchResponse {
   user-select: none;
   cursor: pointer;
 }
 
-.pagination li.active {
+.deputado .pagination li.active {
   background-color: #13c0a0 !important;
 }
 </style>
