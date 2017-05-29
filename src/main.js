@@ -4,8 +4,10 @@ import Vue from 'vue'
 import VueResource from 'vue-resource'
 import App from './App'
 import router from './router'
+import VuePaginate from 'vue-paginate'
 
 Vue.use(VueResource)
+Vue.use(VuePaginate)
 
 Vue.config.productionTip = false
 
