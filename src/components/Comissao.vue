@@ -51,7 +51,7 @@
                   <option value="" disabled selected>Selecione um Mês</option>
                   <option v-for="month in months">{{ month.value }}</option>
                 </select>
-                <label v-if="searchProperties.monthValue == ''">* Opção vazia</label>
+                <label v-if="searchProperties.yearValue == ''">* Opção vazia</label>
               </div>
             </div>
             <a class="waves-effect waves-light btn" type="submit" @click.prevent="searchCommission()">Buscar</a>
@@ -82,7 +82,7 @@
         </div>
       </div>
     </div>
-    <div class="row" v-if="!show">
+    <div class="row" v-if="show === false">
       <div class="col s12">
         <span class="error">Nenhum dado foi encontrado.</span>
       </div>
@@ -128,12 +128,18 @@ export default {
       })
     },
     searchCommission() {
-      this.$http.get('http://dadosabertos.almg.gov.br/ws/comissoes/'+ this.searchProperties.commissionId +'/composicoes/'+ this.searchProperties.yearValue +'/'+ this.searchProperties.monthValue + '?formato=json').then(response => {
+      this.$http.get('http://dadosabertos.almg.gov.br/ws/comissoes/'+ this.searchProperties.commissionId +'/composicoes/'+ this.searchProperties.yearValue +'/'+ this.searchProperties.monthValue + '?formato=json')
+      .then(response => {
         if(response.data.list == 0) {
           this.show = false
         } else {
           this.searchResponse = response.data.list
           this.show = true
+        }
+      })
+      .catch(error => {
+        if(error.status == 0) {
+          alert('Seleciona uma opção valida!')
         }
       })
     }
