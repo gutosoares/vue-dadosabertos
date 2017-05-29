@@ -5,7 +5,7 @@
         <div class="nav-wrapper container">
           <router-link to="/comissao" class="brand-logo center hide-on-med-and-down"><i class="material-icons">dashboard</i> Dados Abertos</router-link>
           <ul class="right hide-on-med-and-down">
-            <li class="active"><router-link to="/comissao">Comissão</router-link></li>
+            <li><router-link to="/comissao">Comissão</router-link></li>
             <li><router-link to="/deputado">Deputados</router-link></li>
           </ul>
           <div class="menu-mobile hide-on-large-only">

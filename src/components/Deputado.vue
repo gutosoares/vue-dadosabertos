@@ -87,7 +87,8 @@
     </div>
     <div class="row" v-if="show">
       <div class="col s12">
-        <div class="card card-response center-align" v-for="element in searchResponse">
+        <paginate name="searchResponse" :list="searchResponse" :per="5">
+          <div class="card card-response center-align" v-for="element in paginated('searchResponse')">
             <div class="card-content valing-wrapper">
               <div class="row">
                 <div class="col s4">
@@ -101,7 +102,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </paginate>
+        <paginate-links class="pagination center-align" for="searchResponse" :show-step-links="true" :limit="10"></paginate-links>
+      </div>
     </div>
     <div class="row" v-if="!show">
       <div class="col s12">
@@ -123,6 +126,7 @@ export default {
         { "id": 4, "name": 'Perdeu Mandato' },
       ],
       searchResponse: [],
+      paginate: ['searchResponse'],
       sit: '',
       show: true
     }
@@ -166,5 +170,14 @@ export default {
 .card-response p {
   color: #13c0a0 !important;
   font-weight: 200;
+}
+
+.paginate-links.searchResponse {
+  user-select: none;
+  cursor: pointer;
+}
+
+.pagination li.active {
+  background-color: #13c0a0 !important;
 }
 </style>
