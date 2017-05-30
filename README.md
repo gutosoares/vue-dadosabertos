@@ -5,7 +5,7 @@
 ## Demo
 ![Demonstração do Sistema](demo/demo.gif)
 
-## Stack utilizada
+## Stack Utilizada
 * Vue.js
 * Vue Router
 * Vue Resource
