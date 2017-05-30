@@ -6,12 +6,12 @@
 ![Demonstração do Sistema](demo/demo.gif)
 
 ## Stack Utilizada
-* Vue.js
-* Vue Router
-* Vue Resource
-* Vue Paginate
-* Materalize Framework
-* Dados Abertos do Governo
+* [Vue.js](https://vuejs.org)
+* [Vue Router](https://router.vuejs.org/en/)
+* [Vue Resource](https://github.com/pagekit/vue-resource)
+* [Vue Paginate](https://github.com/TahaSh/vue-paginate)
+* [Materialize Framework](http://materializecss.com)
+* [Dados Abertos do Governo](http://dadosabertos.almg.gov.br/ws/ajuda/sobre)
 
 ## Build Setup
 
